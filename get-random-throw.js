@@ -1,4 +1,8 @@
+const computerChoiceArray = ['rock', 'paper', 'scissors'];
+
 export function getThrow() {
-    const randomThrow = Math.round(Math.random());
-    return randomThrow;
+    const randomNumber = Math.ceil(Math.random() * 2);
+    const computerThrow = computerChoiceArray[randomNumber];
+    console.log(computerThrow);
 }
+
