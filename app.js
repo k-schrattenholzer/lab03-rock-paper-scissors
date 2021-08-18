@@ -4,16 +4,19 @@ import { getThrow, checkUserGuess, } from './get-random-throw.js';
 
 // import functions and grab DOM elements
 const submitButton = document.getElementById('submit-button');
-const guessEl = document.getElementById('user-guess');
+const userChoiceEl = document.getElementById('user-choice');
 const correctAnswer = document.getElementById('correct-answer');
 const resultEl = document.getElementById('result');
 const winsEl = document.getElementById('total-win');
 const lossesEl = document.getElementById('total-loss');
+const drawsEl = document.getElementById('total-draw');
+const totalEl = document.getElementById('total');
 const percentEl = document.getElementById('percent');
 
 // initialize global state
 let wins = 0;
 let losses = 0;
+let draws = 0;
 
 // set event listeners 
 
@@ -21,16 +24,29 @@ submitButton.addEventListener('click', () => {
     const userThrow = document.querySelector('input:checked');
     const compThrow = getThrow();
     const throwResult = checkUserGuess(userThrow.value, compThrow);
+    const total = wins + losses + draws;
     console.log(userThrow.value, compThrow, throwResult);
     if (throwResult === 'win') {
         wins++;
         resultEl.textContent = 'You won!';
     }
     if (throwResult === 'draw') {
+        draws++;
         resultEl.textContent = `It's a draw`;
     } 
     if (throwResult === 'lose') {
         resultEl.textContent = 'The computer wins.';
         losses++;
     }
+    winsEl.textContent = `Wins: ${wins}`;
+    lossesEl.textContent = `Losses: ${losses}`;
+    drawsEl.textContent = `Draws: ${draws}`;
+    totalEl.textContent = `Total: ${total}`;
+    userChoiceEl.textContent = `You chose ${userThrow.value}`;
+    correctAnswer.textContent = `The computer threw ${compThrow}`;
 });
+
+// formula showGuessAndResults() {
+//     userChoiceEl.textContent = `You threw ${userThrow}`;
+//     correctAnswer.textContent = `The computer threw`;
+// }
