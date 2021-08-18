@@ -22,6 +22,15 @@ submitButton.addEventListener('click', () => {
     const compThrow = getThrow();
     const throwResult = checkUserGuess(userThrow.value, compThrow);
     console.log(userThrow.value, compThrow, throwResult);
-    
+    if (throwResult === 'win') {
+        wins++;
+        resultEl.textContent = 'You won!';
+    }
+    if (throwResult === 'draw') {
+        resultEl.textContent = `It's a draw`;
+    } 
+    if (throwResult === 'lose') {
+        resultEl.textContent = 'The computer wins.';
+        losses++;
+    }
 });
-
