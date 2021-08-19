@@ -4,6 +4,7 @@ import { getThrow, checkUserGuess, } from './get-random-throw.js';
 
 // import functions and grab DOM elements
 const submitButton = document.getElementById('submit-button');
+const resetButton = document.getElementById('reset')
 const userChoiceEl = document.getElementById('user-choice');
 const correctAnswer = document.getElementById('correct-answer');
 const resultEl = document.getElementById('result');
@@ -44,8 +45,12 @@ submitButton.addEventListener('click', () => {
     totalEl.textContent = `Total: ${total}`;
     userChoiceEl.textContent = `You chose ${userThrow.value}`;
     correctAnswer.textContent = `The computer threw ${compThrow}`;
+    resetButton.style.display = 'flex';
 });
 
+resetButton.addEventListener('click', () => {
+    location.reload();
+});
 // formula showGuessAndResults() {
 //     userChoiceEl.textContent = `You threw ${userThrow}`;
 //     correctAnswer.textContent = `The computer threw`;

@@ -114,3 +114,7 @@ footer {
     }
 
   }
+
+  #reset {
+      display: none;
+  }
