@@ -25,7 +25,7 @@ submitButton.addEventListener('click', () => {
     const userThrow = document.querySelector('input:checked');
     const compThrow = getThrow();
     const throwResult = checkUserGuess(userThrow.value, compThrow);
-    const total = wins + losses + draws;
+    
     console.log(userThrow.value, compThrow, throwResult);
     if (throwResult === 'win') {
         wins++;
@@ -33,25 +33,24 @@ submitButton.addEventListener('click', () => {
     }
     if (throwResult === 'draw') {
         draws++;
+        console.log(draws);
         resultEl.textContent = `It's a draw`;
     } 
     if (throwResult === 'lose') {
         resultEl.textContent = 'The computer wins.';
         losses++;
     }
+    const total = Number(wins) + Number(losses) +Number(draws);
     winsEl.textContent = `Wins: ${wins}`;
     lossesEl.textContent = `Losses: ${losses}`;
     drawsEl.textContent = `Draws: ${draws}`;
     totalEl.textContent = `Total: ${total}`;
     userChoiceEl.textContent = `You chose ${userThrow.value}`;
     correctAnswer.textContent = `The computer threw ${compThrow}`;
+    percentEl.textContent = `Success percent: ${Math.round(wins/(total) * 100)}%`;
     resetButton.style.display = 'flex';
 });
 
 resetButton.addEventListener('click', () => {
     location.reload();
 });
-// formula showGuessAndResults() {
-//     userChoiceEl.textContent = `You threw ${userThrow}`;
-//     correctAnswer.textContent = `The computer threw`;
-// }
