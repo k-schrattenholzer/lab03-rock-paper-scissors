@@ -40,7 +40,7 @@ submitButton.addEventListener('click', () => {
         resultEl.textContent = 'The computer wins.';
         losses++;
     }
-    const total = Number(wins) + Number(losses) +Number(draws);
+    const total = Number(wins) + Number(losses) + Number(draws);
     winsEl.textContent = `Wins: ${wins}`;
     lossesEl.textContent = `Losses: ${losses}`;
     drawsEl.textContent = `Draws: ${draws}`;
