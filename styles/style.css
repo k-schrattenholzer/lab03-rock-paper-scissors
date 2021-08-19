@@ -46,11 +46,14 @@ section {
 }
 
 header {
-    display: flex;
-    justify-content: flex-end;
+    display: grid;
+    justify-content: center;
+    align-content: center;
     background-color: var(--color3);
-    height: var(--header-height);
+    height: 10%;
     box-shadow: var(--shadow);
+    padding: 25px;
+    margin: 25px;
 }
 
 footer {
@@ -110,4 +113,8 @@ footer {
         transform: rotate3d(10, 10, 10, 50deg) scale(1);
     }
 
+  }
+
+  #reset {
+      display: none;
   }
